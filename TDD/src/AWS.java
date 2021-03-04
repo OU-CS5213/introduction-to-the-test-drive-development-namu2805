@@ -60,6 +60,21 @@ public class AWS {
 		}
 		return numCount;
 	}
+
+	public void stepMultiplier() {
+		for(int i = 0; i < values.length; ++i) {
+			if(values[i] < 100 && values[i] > 20) {
+				values[i] = values[i]*100;
+			}
+			else if(values[i] < 20 && values[i] > 10) {
+				values[i] = values[i]*4;
+			}
+			else if(values[i] < 10) {
+				values[i] = values[i]*2;
+			}
+		}
+		
+	}
 	
 
 }

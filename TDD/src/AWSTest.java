@@ -121,13 +121,27 @@ class AWSTest {
 	}
 	@Test
 	void removeBiggerThan() {
-		int[] x = {1,2,3};
+		int[] x = { 1, 2, 3};
 		AWS aws = new AWS(x);
-		
 		int numCount = aws.removeBiggerThan(0);
 		int expected = 3;
 		assertEquals(expected, numCount);
 	}
-
+	@Test
+	void stepMultiplier() {
+		int[] x = {7, 5, 18, 85};
+		AWS aws = new AWS(x);
+		aws.stepMultiplier();
+		int[] result = aws.getValues();
+		int first = 14;
+		int second = 10;
+		int third = 72;
+		int fourth = 8500;
+		assertEquals(first, result[0]);
+		assertEquals(second, result[1]);
+		assertEquals(third, result[2]);
+		assertEquals(fourth, result[3]);
+	
+	}
 
 }
