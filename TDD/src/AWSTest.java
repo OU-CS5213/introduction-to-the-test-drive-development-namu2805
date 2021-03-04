@@ -119,6 +119,15 @@ class AWSTest {
 
 	
 	}
+	@Test
+	void removeBiggerThan() {
+		int[] x = {1,2,3};
+		AWS aws = new AWS(x);
+		
+		int numCount = aws.removeBiggerThan(0);
+		int expected = 3;
+		assertEquals(expected, numCount);
+	}
 
 
 }
