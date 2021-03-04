@@ -21,4 +21,4 @@ jobs:
     #- name: Build with Maven
      # run: mvn -B package --file pom.xml
     - name: Part 2 Github Actions
-      run: AWSTest.java
+      run: TDD/src/AWSTest.java
