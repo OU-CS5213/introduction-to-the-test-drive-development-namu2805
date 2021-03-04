@@ -22,4 +22,4 @@ jobs:
       #run: mvn -B package --file pom.xml
       run: mvn --batch-mode --update-snapshots verify
     - name: Part 2 Github Actions
-      run: TDD/src/AWSTest.java
+      run: AWSTest.java
