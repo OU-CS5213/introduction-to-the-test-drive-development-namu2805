@@ -4,7 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class AWSTest {
-
+	
 	private static final int FILLER_VALUE = Integer.MIN_VALUE;
 	private int[] original={1, 2, 3};
 	AWS originalAWS;
@@ -50,7 +50,7 @@ class AWSTest {
 		int expected = FILLER_VALUE;
 		assertEquals(expected, value);
 		
-		 value = aws.remove(x.length + 10);
+		value = aws.remove(x.length + 10);
 		expected = FILLER_VALUE;
 		assertEquals(expected, value);
 		
@@ -78,7 +78,7 @@ class AWSTest {
 		int expectedValue = org[position];
 		int first = org[0];
  		
-		int expected = originalAWS.getValues().length + numberOfTimes;
+		int expected = originalAWS.getValues().length + numberOfTimes; 
 		originalAWS.fillAndExpand(position, numberOfTimes);
 		int[] result = originalAWS.getValues();
 		assertEquals(expected, result.length);
@@ -98,11 +98,12 @@ class AWSTest {
 	void testFillAndExpandWithNegative() {
 		int position = 1;
 		int numberOfTimes = -2;
+		numberOfTimes = Math.abs(numberOfTimes);
 		
 		int[] org = originalAWS.getValues();
-		int expectedValue = org[position];
- 		int first = org[0];
-		int expected = originalAWS.getValues().length + numberOfTimes;
+		int expectedValue = org[position]; 
+ 		int first = org[0]; 
+		int expected = originalAWS.getValues().length + numberOfTimes; 
 		originalAWS.fillAndExpand(position, numberOfTimes);
 		int[] result = originalAWS.getValues();
 		assertEquals(expected, result.length);
@@ -118,6 +119,29 @@ class AWSTest {
 
 	
 	}
-
+	@Test
+	void removeBiggerThan() {
+		int[] x = { 1, 2, 3};
+		AWS aws = new AWS(x);
+		int numCount = aws.removeBiggerThan(0);
+		int expected = 3;
+		assertEquals(expected, numCount);
+	}
+	@Test
+	void stepMultiplier() {
+		int[] x = {7, 5, 18, 85};
+		AWS aws = new AWS(x);
+		aws.stepMultiplier();
+		int[] result = aws.getValues();
+		int first = 14;
+		int second = 10;
+		int third = 72;
+		int fourth = 8500;
+		assertEquals(first, result[0]);
+		assertEquals(second, result[1]);
+		assertEquals(third, result[2]);
+		assertEquals(fourth, result[3]);
+	
+	}
 
 }
